@@ -5,6 +5,7 @@
 </head>
 
 <body>
+	<h1>MI PAGINA WEB</h1>
 	<ul>
 		<li><a>Menu Principal</a>
 		<li><a href="index.html">Inicio</a>
@@ -13,6 +14,33 @@
 		<li><a href="contacteme.html">Contacteme</a>
 	</ul>
 	<h1>Contactame</h1>
-	<p>LLena el siguiente formulario para ponerme en contacto contigo
+	<p>
+	Puede que tengas algunas dudas o quieras conocerme mas.
+	Si quieres mas informacion completa el siguiente formulario para ponerme en contacto contigo.
+	</p>
+	<form>
+		<label for="nombre">Ingresa tu Nombre:</label>
+		<input type="text" id="nombre"><br><br>
+		
+		<label for="correo">Ingresa tu Correo:</label>
+		<input type="email" id="correo"><br><br>
+		
+		<label for="genero">Elija su genero:</label><br><br>
+		<input type="radio" id="masculino" name="genero">
+		<label for="genero">Masculino</label><br><br>
+		<input type="radio" id="femenino" name="genero">
+		<label for="genero">Femenino</label><br><br>
+		
+		<label for="nacimiento">Ingresa tu Fecha de nacimiento:</label>
+		<input type="date" id="nacimiento"><br><br>
+		
+		<label for="asunto">Ingrese su Asunto:</label>
+		<input type="text" id="asunto"><br><br>
+		
+		<label for="contenido">Ingresa el Contenido:</label>
+		<textarea id="contenido" rows="5" cols="40"></textarea><br><br>
+		
+		<input type="submit" value="Enviar">
+	</form>
 </body>
 </html>
