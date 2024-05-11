@@ -1,0 +1,52 @@
+body {
+    font-family: Georgia Times, Times New Roman, Times, serif;
+    color: #00F8FF;
+	background-image: url(../img/fondo.jpg);
+}
+h1 {
+    font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+}
+h1, h2, h3, h4, h5, h6, p {
+	text-align: center;
+}
+.barraTitulo {
+	font-size: 30px;
+	font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+	background: black;
+	padding: 5px;
+	width: 1500px;
+	margin-left: auto;
+    margin-right: auto;
+}
+.fondoTexto {
+	background: black;
+	padding: 50px;
+	border-radius: 50px;
+	width: 800px;
+	margin-left: auto;
+    margin-right: auto;
+}
+ul.menu {
+	color: black;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 150px;
+	left: 1em;
+	width: 300px;
+}
+ul.menu li {
+	font-size: 20px;
+	font-weight: bold;
+	background: #08CED2;
+	margin: 0.5em 0;
+	padding: 0.3em;
+	border-right: 50px solid #374454;
+}
+a:link {
+  color: blue;
+ }
+a:visited {
+  color: blue;
+}
