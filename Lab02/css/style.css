@@ -9,8 +9,14 @@ h1 {
 h1, h2, h3, h4, h5, h6, p {
 	text-align: center;
 }
+
+.titulo {
+	font-size: 25px;
+	color: #0AF6DB;
+}
 .barraTitulo {
-	font-size: 30px;
+	color: #0AF6DB;
+	font-size: 20px;
 	font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
 	background: black;
 	padding: 5px;
@@ -19,12 +25,16 @@ h1, h2, h3, h4, h5, h6, p {
     margin-right: auto;
 }
 .fondoTexto {
+	color: #E0DFEF;
+	font-size: 17px;
 	background: black;
-	padding: 50px;
+	padding: 25px;
 	border-radius: 50px;
 	width: 800px;
 	margin-left: auto;
     margin-right: auto;
+	text-decoration: none;
+	list-style: none;
 }
 ul.menu {
 	color: black;
@@ -32,17 +42,35 @@ ul.menu {
 	padding: 0;
 	margin: 0;
 	position: absolute;
-	top: 150px;
+	top: 225px;
 	left: 1em;
 	width: 300px;
 }
 ul.menu li {
-	font-size: 20px;
+	font-size: 17px;
 	font-weight: bold;
 	background: #08CED2;
 	margin: 0.5em 0;
 	padding: 0.3em;
 	border-right: 50px solid #374454;
+}
+ul.menuI {
+	color: black;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 225px;
+	right: 1em;
+	width: 300px;
+}
+ul.menuI li {
+	font-size: 17px;
+	font-weight: bold;
+	background: #08CED2;
+	margin: 0.5em 0;
+	padding: 0.3em;
+	border-left: 50px solid #374454;
 }
 a:link {
   color: blue;
