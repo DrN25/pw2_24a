@@ -72,6 +72,16 @@ ul.menuI li {
 	padding: 0.3em;
 	border-left: 50px solid #374454;
 }
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], textarea {
+	border-radius: 10px;
+	background-color: lightblue;
+	color: black;
+}
+input.boton {
+	background-color: #08CED2;
+	border-radius: 10px;
+	padding: 20px;
+}
 a:link {
   color: blue;
  }
