@@ -2,45 +2,52 @@
 <html>
 <head>
   <title>Contactame</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-	<h1>MI PAGINA WEB</h1>
-	<ul>
-		<li><a>Menu Principal</a>
+	<div class="barraTitulo">
+		<h1>MI PAGINA WEB</h1>
+	</div>
+	<ul class="menu">
+		<li>Menu Principal
 		<li><a href="index.html">Inicio</a>
 		<li><a href="autor.html">Autor</a>
 		<li><a href="estandaresWeb.html">Estandares Web</a>
 		<li><a href="contactame.html">Contacteme</a>
 	</ul>
 	<h1>Contactame</h1>
-	<p>
-	Puede que tengas algunas dudas o quieras conocerme mas.
-	Si quieres mas informacion completa el siguiente formulario para ponerme en contacto contigo.
-	</p>
-	<form>
-		<label for="nombre">Ingresa tu Nombre:</label>
-		<input type="text" id="nombre"><br><br>
-		
-		<label for="correo">Ingresa tu Correo:</label>
-		<input type="email" id="correo"><br><br>
-		
-		<label for="genero">Elija su genero:</label><br><br>
-		<input type="radio" id="masculino" name="genero">
-		<label for="genero">Masculino</label><br><br>
-		<input type="radio" id="femenino" name="genero">
-		<label for="genero">Femenino</label><br><br>
-		
-		<label for="nacimiento">Ingresa tu Fecha de nacimiento:</label>
-		<input type="date" id="nacimiento"><br><br>
-		
-		<label for="asunto">Ingrese su Asunto:</label>
-		<input type="text" id="asunto"><br><br>
-		
-		<label for="contenido">Ingresa el Contenido:</label>
-		<textarea id="contenido" rows="5" cols="40"></textarea><br><br>
-		
-		<input type="submit" value="Enviar">
-	</form>
+	<div class="fondoTexto">
+		<p>
+		Puede que tengas algunas dudas o quieras conocerme mas.
+		Si quieres mas informacion completa el siguiente formulario para ponerme en contacto contigo.
+		</p>
+	</div>
+	<div class="fondoTexto">
+		<form>
+			<label for="nombre">Ingresa tu Nombre:</label>
+			<input type="text" id="nombre"><br><br>
+			
+			<label for="correo">Ingresa tu Correo:</label>
+			<input type="email" id="correo"><br><br>
+			
+			<label for="genero">Elija su genero:</label><br><br>
+			<input type="radio" id="masculino" name="genero">
+			<label for="genero">Masculino</label><br><br>
+			<input type="radio" id="femenino" name="genero">
+			<label for="genero">Femenino</label><br><br>
+			
+			<label for="nacimiento">Ingresa tu Fecha de nacimiento:</label>
+			<input type="date" id="nacimiento"><br><br>
+			
+			<label for="asunto">Ingrese su Asunto:</label>
+			<input type="text" id="asunto"><br><br>
+			
+			<label for="contenido">Ingresa el Contenido:</label>
+			<textarea id="contenido" rows="5" cols="40"></textarea><br><br>
+			
+			<input type="submit" class="boton" value="Enviar">
+		</form>
+	</div>
 </body>
 </html>
