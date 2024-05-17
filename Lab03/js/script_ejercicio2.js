@@ -1,5 +1,5 @@
 function calculadora() {
-	let arr = [7,8,9,'÷','E',4,5,6,'x','C',1,2,3,'-','.',0,'(',')','+','='];
+	let arr = [7,8,9,'/','E',4,5,6,'*','C',1,2,3,'-','.',0,'(',')','+','='];
 	let calculadora = document.getElementById('calculadora');
 	let barra = document.getElementById('barra');	//Aqui se mostraran los datos y el resultado
 	//Creando las teclas numericas y asignandoles un valor al ser presionadas
@@ -8,16 +8,25 @@ function calculadora() {
 		tecla.textContent = arr[i];
 		tecla.type = 'button';
 		calculadora.appendChild(tecla);
-		if(i !== 4 || i !== 9 || i !== 19) {
-			tecla.addEventListener('click', ()=> {
+		tecla.addEventListener('click', ()=> {
+			//Se toman condiciones acerca de que hacer con cada boton			
+			if(arr[i] == 'E') {
+				barra.value = barra.value.slice(0,-1);	//Elimina el ultimo valor
+			} else if (arr[i] == 'C') {
+				barra.value = '';	//Elimina todo
+			} else if (arr[i] == '=') {
+				try {
+					barra.value = eval(barra.value);
+				} catch(error) {
+					barra.value = 'ERROR';
+				}
+			} else {
 				barra.value += arr[i];
-			});
-		}
-		
+			}
+		});		
 		if( (i + 1) % 5 === 0) {	//Cada 5 botones se hara salto de linea
 			calculadora.appendChild(document.createElement('br'));
 		}
 	}
 }
 calculadora();
-alerta();
