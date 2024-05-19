@@ -3,14 +3,53 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/Estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/Estilos1.css">
 	<title>Document</title>
 </head>
 <body>
+	<div class="imagenes">
+		<img src="img/multired.png" width="300px" height="100px">
+		<img src="img/banco.png" width="300px" height="100px">
+	</div>
 	<center>
 		<form class="formulario" id="formulario" method="get">
-			<input type="text" class="barra" id="barra" name="barra" readonly>
-			<div class="teclado" id="teclado"></div>
+			<table>
+                <tr>
+					<td><p>Seleccione</p></td>
+					<td>
+						<select>
+							<option value="opcion1">MultiRed Global Debito</option>
+							<option value="opcion2">Otros</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><p>Número de Tarjeta</p></td>
+					<td><input type="number" name="tarjeta"></td>
+				</tr>
+				<tr>
+					<td><p>Tipo de Documento y DNI</p></td>
+					<td>
+						<select>
+							<option value="opcion1">DNI</option>
+							<option value="opcion2">Pasaporte</option>
+						</select>
+					</td>
+					<td><input type="number" name="identidad"></td>
+				</tr>
+				<tr>
+					<td><p>Ingresa tu clave usando el teclado virtual</p></td>
+					<td>
+						<div class="teclado" id="teclado"></div>
+					</td>
+					<td><input type="text" id="barra" name="barra" readonly></td>
+				</tr>
+				<tr>
+					<td><p>Ingrese el texto de la imagen</p></td>
+					<td><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Captcha.jpg"></img></td>
+					<td><input type="text" name="captcha"></td>
+				</tr>
+			</table>
 			<button type="submit">Enviar</button>
 		<form/>
 	</center>
