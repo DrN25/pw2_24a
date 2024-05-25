@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Agenda</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
 </head>
 <body>
-	<center>
-		<form action="/submit" method="post">
-			<table>
+    <center>
+        <form action="/submit" method="post">
+            <table>
                 <tr>
-					<td><p>Fecha</p></td>
-					<td>
-						<td><input type="date" name="fecha"></td>
-					</td>
-				</tr>
-				 <tr>
-					<td><p>Hora (12-59)</p></td>
-					<td>
-						<td><input type="text" name="hora"></td>
-					</td>
-				</tr>
-				 <tr>
-					<td><p>Contenido</p></td>
-					<td>
-						<td><textarea name="contenido"></textarea></td>
-					</td>
-			</table>
-			<button type="submit">Enviar</button>
-		<form/>
-	</center>
-	<script src="index.js"></script>
+                    <td><p>Fecha</p></td>
+                    <td><input type="date" name="fecha"></td>
+                </tr>
+                <tr>
+                    <td><p>Hora (12-59)</p></td>
+                    <td><input type="text" name="hora"></td>
+                </tr>
+                <tr>
+                    <td><p>Contenido</p></td>
+                    <td><textarea name="contenido"></textarea></td>
+                </tr>
+            </table>
+            <button type="submit">Enviar</button>
+        </form>
+        <form action="/arbol" method="get">
+            <button type="submit">Ver directorio</button>
+        </form>
+    </center>
+    <script src="index.js"></script>
 </body>
 </html>
