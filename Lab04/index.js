@@ -59,29 +59,28 @@ app.post('/eliminar', (req, res) => {
 	}
 });
 
-const crearArbol = (dirActual, espacio = '') => {
-	const atr = fs.statSync(dirActual);
-	if(atr.isDirectory()) {
-		let resultado = '';
-		const carpetas = fs.readdirSync(dirActual)
-			.filter(carpeta => carpeta != 'node_modules' && fs.statSync(path.join(dirActual, carpeta)).isDirectory());
-		for(const carpeta of carpetas) {
-			const rutaCarpeta = path.join(dirActual, carpeta);
-			resultado += `${espacio}${path.basename(rutaCarpeta)}\n`;
-			const archivos = fs.readdirSync(rutaCarpeta);
-			for(const archivo of archivos) {
-				resultado += `${espacio} ${archivo}\n`;
-			}
+const crearArbol = (dirActual) => {
+	let resultado = `${path.basename(dirActual)} [DIR]\n`;
+	const items = fs.readdirSync(dirActual);
+	items.forEach((item) => {
+		const rutaItem = path.join(dirActual, item);
+		const esDirectorio = fs.statSync(rutaItem).isDirectory();
+		const prefijo = esDirectorio ? '[DIR]' : '[FILE]';
+		const guion = esDirectorio ? '---' : '--';
+		resultado += `|${guion} ${item} ${prefijo}\n`;
+		if (esDirectorio) {
+            const subItems = fs.readdirSync(rutaItem);
+				subItems.forEach((subItem) => {
+				resultado += `|    |-- ${subItem} [FILE]\n`;
+			});
 		}
-		return resultado;
-	} else {
-		return `${espacio}${path.basename(dirActual)}\n`;
-	}
+	});
+	return resultado;
 };
 
 app.get('/arbol', (req, res) => {
 	const arbol = crearArbol(path.join(__dirname, 'agenda'));
-	res.send(`<pre>${arbol.replace(/\n/g, '<br>')}</pre>`);
+	res.send(`${arbol.replace(/\n/g, '<br>')}`);
 });
 
 app.listen(3000, () => {

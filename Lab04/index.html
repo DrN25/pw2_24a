@@ -59,11 +59,23 @@
 			</table>
 			<button type="submit">Eliminar</button>
 		</form><br>
-		<form action="/arbol" method="get">
+		<form action="javascript:void(0);" method="get" onsubmit="cargarArbol()">
             <button type="submit">Ver Eventos</button>
-        </form>
+        </form><br>
+		<pre id="arbolContainer"></pre>
     </center>
     <script>
+		function cargarArbol() {
+			fetch('/arbol')
+				.then(response => response.text())
+				.then(data => {
+					document.getElementById('arbolContainer').innerHTML = data;
+				})
+				.catch(error => {
+					console.error('Error al cargar el árbol:', error);
+				});
+		}
+	
 		function buscarArchivo() {
 			const fecha = document.getElementById('editFecha').value;
 			const hora = document.getElementById('editHora').value;
