@@ -41,7 +41,19 @@ app.post('/editar', (req, res) => {
 	const filePath = path.join(folderPath, `${hora}.txt`);
 	if(fs.existsSync(filePath)) {
 		fs.writeFileSync(filePath, contenido);
-		res.send('Archivo editado exitosamente');
+	res.send('Archivo editado exitosamente');
+	} else {
+		res.status(404).send('Archivo no encontrado');
+	}
+});
+
+app.post('/eliminar', (req, res) => {
+	const { fecha, hora } = req.body;
+	const folderPath = path.join(__dirname, 'agenda', fecha);
+	const filePath = path.join(folderPath, `${hora}.txt`);
+	if (fs.existsSync(filePath)) {
+		fs.unlinkSync(filePath);
+	res.send('Archivo eliminado exitosamente');
 	} else {
 		res.status(404).send('Archivo no encontrado');
 	}
