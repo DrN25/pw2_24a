@@ -4,8 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
+app.use(express.static('pub'));
 
 app.use(bp.urlencoded({extended: true}));
+app.use(bp.json());
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, 'index.html'));
@@ -13,13 +15,36 @@ app.get('/', (req, res) => {
 
 app.post('/submit', (req, res) => {
 	const {fecha, hora, contenido} = req.body;
-	const folderPath = path.join(__dirname, fecha);
+	const folderPath = path.join(__dirname, 'agenda' , fecha);
 	const filePath = path.join(folderPath, `${hora}.txt`);
 	if(!fs.existsSync(folderPath)) {
-		fs.mkdirSync(folderPath);
+		fs.mkdirSync(folderPath, { recursive: true });
 	}
 	fs.writeFileSync(filePath, contenido);
 	res.send('Archivo guardado correctamente.');
+});
+
+app.get('/buscar', (req, res) => {
+	const {fecha, hora} = req.query;
+	const filePath = path.join(__dirname, 'agenda', fecha, `${hora}.txt`);
+	if(fs.existsSync(filePath)) {
+		const contenido = fs.readFileSync(filePath, 'utf-8');
+		res.json({contenido});
+	} else {
+		res.status(404).send('Archivo no encontrado');
+	}
+});
+
+app.post('/editar', (req, res) => {
+	const {fecha, hora, contenido} = req.body;
+	const folderPath = path.join(__dirname, 'agenda', fecha);
+	const filePath = path.join(folderPath, `${hora}.txt`);
+	if(fs.existsSync(filePath)) {
+		fs.writeFileSync(filePath, contenido);
+		res.send('Archivo editado exitosamente');
+	} else {
+		res.status(404).send('Archivo no encontrado');
+	}
 });
 
 const crearArbol = (dirActual, espacio = '') => {

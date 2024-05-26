@@ -23,11 +23,70 @@
                 </tr>
             </table>
             <button type="submit">Enviar</button>
-        </form>
+		</form>
+		<form id="editForm" action="/editar" method="post" onsubmit="editarArchivo(event)">
+			<table>
+				<tr>
+					<td><p>Fecha</p></td>
+					<td><input type="date" id="editFecha" name="fecha" required></td>
+				</tr>
+				<tr>
+					<td><p>Hora (12-59)</p></td>
+					<td><input type="text" id="editHora" name="hora" required></td>
+				</tr>
+				<tr>
+					<td><p>Contenido</p></td>
+					<td><textarea id="editContenido" name="contenido" required></textarea></td>
+				</tr>
+			</table>
+			<button type="button" onclick="buscarArchivo()">Buscar</button>
+			<button type="submit">Editar</button>
+		</form>
+		</form>
         <form action="/arbol" method="get">
             <button type="submit">Ver directorio</button>
         </form>
     </center>
-    <script src="index.js"></script>
+    <script>
+		function buscarArchivo() {
+			const fecha = document.getElementById('editFecha').value;
+			const hora = document.getElementById('editHora').value;
+
+			if (fecha && hora) {
+				const url = `/buscar?fecha=${fecha}&hora=${hora}`;
+				fetch(url)
+					.then(response => {
+						if (!response.ok) {
+							throw new Error('Archivo no encontrado.');
+						}
+						return response.json();
+					})
+					.then(data => {
+						document.getElementById('editContenido').value = data.contenido;
+					})
+					.catch(error => {
+						alert(error.message);
+					});
+			} else {
+				alert('Por favor, complete los campos de fecha y hora.');
+			}
+		}
+
+		function editarArchivo() {
+			const fecha = document.getElementById('editFecha').value;
+			const hora = document.getElementById('editHora').value;
+			const contenido = document.getElementById('editContenido').value;
+
+			if(fecha && hora && contenido) {
+				fetch('/editar', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ fecha, hora, contenido })
+				});
+			}
+		}
+	</script>
 </body>
 </html>
