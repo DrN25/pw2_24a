@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Agenda</title>
 </head>
 <body>
 	<center>
+		<h1>Crear Nuevo Evento</h1><br>
 		<form action="/submit" method="post">
 			<table>
 				<tr>
@@ -14,16 +16,17 @@
 					<td><input type="date" name="fecha"></td>
 				</tr>
 			<tr>
-					<td><p>Hora (12-59)</p></td>
+					<td><p>Hora</p></td>
 					<td><input type="text" name="hora"></td>
 				</tr>
 				<tr>
 					<td><p>Contenido</p></td>
 					<td><textarea name="contenido"></textarea></td>
-				/tr>
+				<tr>
 			</table>
 			<button type="submit">Enviar</button>
-		</form>
+		</form><br>
+		<h1>Editar Evento</h1><br>
 		<form action="/editar" method="post" onsubmit="editarArchivo(event)">
 			<table>
 				<tr>
@@ -31,17 +34,18 @@
 					<td><input type="date" id="editFecha" name="fecha" required></td>
 				</tr>
 				<tr>
+					<td><p>Hora</p></td>
 					<td><input type="text" id="editHora" name="hora" required></td>
-					<td><p>Hora (12-59)</p></td>
+					<td><button type="button" onclick="buscarArchivo()">Buscar</button></td>
 				</tr>
 				<tr>
 					<td><p>Contenido</p></td>
 					<td><textarea id="editContenido" name="contenido" required></textarea></td>
 				</tr>
 			</table>
-			<button type="button" onclick="buscarArchivo()">Buscar</button>
 			<button type="submit">Editar</button>
-		</form>
+		</form><br>
+		<h1>Eliminar Evento Evento</h1><br>
 		<form action="/eliminar" method="post" onsubmit="eliminarArchivo(event)">
 			<table>
 				<tr>
@@ -49,14 +53,14 @@
 					<td><input type="date" id="deleteFecha" name="fecha" required></td>
 				</tr>
 				<tr>
-					<td><p>Hora (12-59)</p></td>
+					<td><p>Hora</p></td>
 					<td><input type="text" id="deleteHora" name="hora" required></td>
 				</tr>
 			</table>
 			<button type="submit">Eliminar</button>
-		</form>
+		</form><br>
 		<form action="/arbol" method="get">
-            <button type="submit">Ver directorio</button>
+            <button type="submit">Ver Eventos</button>
         </form>
     </center>
     <script>

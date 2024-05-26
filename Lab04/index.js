@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-app.use(express.static('pub'));
+app.use(express.static(__dirname));
 
 app.use(bp.urlencoded({extended: true}));
 app.use(bp.json());
