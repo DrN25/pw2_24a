@@ -1,9 +1,12 @@
 from interpreter import draw
 from chessPictures import *
 
-queenWhite = queen
-row1 = queen.horizontalRepeat(4)
+knightWhite = knight
+knightBlack = knight.negative()
 
-total = row1
+row1 = knightWhite.join(knightBlack)
+row2 = row1.verticalMirror()
+
+total = row2.up(row1)
 
 draw(total)
