@@ -42,12 +42,12 @@ class Picture:
     return Picture(join)
 
   def up(self, p):
-    return Picture(None)
+    return Picture(p.img + self.img)
 
   def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la
         figura actual """
-    return Picture(None)
+    return Picture(self.img + p.img)
   
   def horizontalRepeat(self, n):
     """ Devuelve una nueva figura repitiendo la figura actual al costado
