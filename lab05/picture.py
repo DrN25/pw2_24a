@@ -1,7 +1,7 @@
 from colors import *
 class Picture:
   def __init__(self, img):
-    self.img = img;
+    self.img = img
 
   def __eq__(self, other):
     return self.img == other.img
@@ -16,7 +16,7 @@ class Picture:
     vertical = []
     for value in self.img:
     	vertical.append(value[::-1])
-    return vertical
+    return Picture(vertical)
 
   def horizontalMirror(self):
     """ Devuelve el espejo horizontal de la imagen """
@@ -24,12 +24,22 @@ class Picture:
 
   def negative(self):
     """ Devuelve un negativo de la imagen """
-    return Picture(None)
+    inverter = {'_': '=', '=': '_', '.': '@', '@': '.'}
+    negative = []
+    for row in self.img:
+        negativeRow = []
+        for value in row:
+            negativeRow.append(inverter.get(value, value))
+        negative.append(negativeRow)
+    return Picture(negative)
 
   def join(self, p):
     """ Devuelve una nueva figura poniendo la figura del argumento 
         al lado derecho de la figura actual """
-    return Picture(None)
+    join = []
+    for i in range(len(self.img)):
+        join.append(''.join(self.img[i]) + ''.join(p.img[i]))
+    return Picture(join)
 
   def up(self, p):
     return Picture(None)
