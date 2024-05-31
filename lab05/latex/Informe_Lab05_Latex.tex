@@ -110,49 +110,49 @@
 https://github.com/DrN25/pw2\_24a/tree/main/Lab05
 	
 \section{Tarea:}
-Cree una aplicación NodeJS con express, para administrar una agenda personal.
-\subsection*{Implementacion de los metodos de la clase Picture.}
-Se crearon varias peticiones y funciones para el funcionamiento de la página usando NodeJS y Express, entre ellas las más destacadas son:
+En esta tarea usted pondrá en práctica sus conocimientos de programación en Python para dibujar un tablero de Ajedrez.
+\subsection*{Implementación de los métodos de la clase Picture.}
+Se implementaron los métodos de Picture, con los procedimientos y métodos pedidos en la practica.
 \begin{itemize}
-    \item \textbf{verticalMirror(): } Esta petición se encarga de crear los eventos. Para ello recibe 3 atributos(fecha, hora, contenido), con los cuales crea una carpeta (si es que no existe) y un documento .txt con su contenido. Una vez creado el evento se almacena en la carpeta "agenda" de manera funcional.\\
+    \item \textbf{verticalMirror(): } Este método retorna una copia vertical de un Picture. Ya viene implementado previamente desde el repositorio de la práctica.\\
 
 
 
 \includegraphics[width=\textwidth]{img/1.png}
-\item \textbf{horizontalMirror(): } Esta petición es la primera parte de la sección Editar. Esta solo recibe 2 atributos(fecha, hora) y con estos verifica que el documento elegido exista, si es así se coloca el contenido del documento en el textarea continuo al botón para que el usuario pueda editar el documento ya presente, caso contrario se notifica que no existe un documento con los datos enviados.\\
+\item \textbf{horizontalMirror(): } Este método retorna una copia horizontal de un Picture. Aquí solo se invierte el orden del arreglo para voltear la imagen.\\
 
 
 
 \includegraphics[width=\textwidth]{img/2.png}
-\item \textbf{negative() } Esta petición es la segunda parte de la sección Editar. Tras la verificación de la petición anterior y con el texto ya modificado, al presionar el botón de enviar se mandaran los 3 atributos(fecha, hora, contenido) como en la petición /submit, y tras ubicar al archivo se reescribirá el mismo pero con el nuevo contenido entregado por el usuario.\\
+\item \textbf{negative(): } Este método retorna un Picture con sus colores opuestos. Aquí se crea un arreglo de valores opuestos llamado \textbf{inverter}, obteniendo los de la clase \textbf{Color}, para luego iterar sobre cada fila y columna de la imagen, donde se invertirá los caracteres según el arreglo \textbf{inverter}, y en caso de que sea “ “ se mantendrá igual.\\
 
 
 
 \includegraphics[width=\textwidth]{img/3.png}
-\item \textbf{join(): } Esta petición se encarga de eliminar los eventos. Para ello se reciben 2 atributos(fecha, hora), con los cuales se ubicará al documento para luego proceder a eliminarlo de su carpeta designada. \\
+\item \textbf{join(): } Este método retorna un nuevo Picture, donde Picture p está al lado derecho del Picture actual. Para conseguir ello, se itera sobre cada fila de Picture, donde en el nuevo arreglo se irán agregando cada fila del Picture actual más cada fila del Picture p.\\
 
 
 
 \includegraphics[width=\textwidth]{img/4.png}
-\item \textbf{up(): } Esta petición se encarga de realizar el proceso para retornar el árbol que contiene a los directorios y documentos. Este llama a la función crearArbol() mandando como atributo la dirección del directorio, la cual retorna un árbol de su contenido con el formato pedido en la práctica.\\
+\item \textbf{up(): } Este método retorna un nuevo Picture, donde el Picture actual está arriba de Picture p. Aquí solo se suman los arreglos para conseguir ello.\\
 
 
 
 \includegraphics[width=\textwidth]{img/5.png}
-\item \textbf{under(): } Esta función lee el contenido del directorio actual, creando una constante la cual contendrá el árbol a devolver. Se itera sobre cada elemento, donde dependiendo si es carpeta o documento se colocará un prefijo -guiones u otros, y se utilizan | para indicar la jerarquía de carpetas y documentos.\\
+\item \textbf{under(): } Este método retorna un Picture, donde Picture p se sobrepone en el Picture actual. Aquí se itera sobre cada fila y columna de los arreglos, donde cada carácter de Picture p se colocara en el nuevo arreglo, a excepción de que el carácter sea igual a " ", donde se pondrá el carácter del Picture actual correspondiente a la fila y columna de ese momento.\\
 
 
 
 \includegraphics[width=\textwidth]{img/6.png}
-\item \textbf{horizontalRepeat(): } Esta petición se encarga de realizar el proceso para retornar el árbol que contiene a los directorios y documentos. Este llama a la función crearArbol() mandando como atributo la dirección del directorio, la cual retorna un árbol de su contenido con el formato pedido en la práctica.\\
+\item \textbf{horizontalRepeat(): } Este método retorna un Picture que se repite n veces de manera horizontal. Para ello se itera sobre cada índice del arreglo actual, y se multiplica cada fila por la cantidad n entregada para dar como resultado las repeticiones horizontales.\\
 
 
 
 \includegraphics[width=\textwidth]{img/7.png}
-\item \textbf{verticalRepeat(): } Esta función lee el contenido del directorio actual, creando una constante la cual contendrá el árbol a devolver. Se itera sobre cada elemento, donde dependiendo si es carpeta o documento se colocará un prefijo -guiones u otros, y se utilizan | para indicar la jerarquía de carpetas y documentos.\\
+\item \textbf{verticalRepeat(): } Este método retorna un Picture que se repite n veces de manera vertical. Para ello, se trabaja con un ciclo for, donde en cada ciclo se agregara la imagen actual al nuevo arreglo, y esto se repetirá n veces para dar como resultado las repeticiones verticales.\\
 
 \includegraphics[width=\textwidth]{img/8.png}
-\item \textbf{EXTRA: rotate(): } Esta función lee el contenido del directorio actual, creando una constante la cual contendrá el árbol a devolver. Se itera sobre cada elemento, donde dependiendo si es carpeta o documento se colocará un prefijo -guiones u otros, y se utilizan | para indicar la jerarquía de carpetas y documentos.\\
+\item \textbf{EXTRA: rotate(): } Esta función retorna el Picture actual rotado 90° a la derecha. Aquí mediante 2 ciclos for se itero sobre la imagen actual. utilizando la función \textbf{reversed()} para iterar sobre las filas de abajo hacia arriba, pudiendo construir la imagen rotada 90°.\\
 
 \includegraphics[width=\textwidth]{img/extra.png}
 \end{itemize}
@@ -160,7 +160,7 @@ Se crearon varias peticiones y funciones para el funcionamiento de la página us
 \subsection*{Ejercicios Resueltos.}
 
 \begin{itemize}
-\item \textbf{Ejercicio a:} \\
+\item \textbf{EJERCICIO A:} Se hizo uso de los métodos negative(), join() y up() para unir los caballos y cambiarlos de color.\\
 
 
 
@@ -168,7 +168,7 @@ Se crearon varias peticiones y funciones para el funcionamiento de la página us
 
 
 \includegraphics[width=\textwidth]{img/10.png}
-\item \textbf{Ejercicio b:} \\
+\item \textbf{EJERCICIO B:} Se hizo uso de lo trabajado en el ejercicio 1 y se usó el método verticalMirror().\\
 
 
 
@@ -176,7 +176,7 @@ Se crearon varias peticiones y funciones para el funcionamiento de la página us
 
 
 \includegraphics[width=\textwidth]{img/12.png}
-\item \textbf{Ejercicio c:} \\
+\item \textbf{EJERCICIO C:} Se hizo uso del método horizontalRepeat() para crear 4 reinas una al lado de la otra. \\
 
 
 
@@ -184,7 +184,7 @@ Se crearon varias peticiones y funciones para el funcionamiento de la página us
 
 
 \includegraphics[width=\textwidth]{img/14.png}
-\item \textbf{Ejercicio d:} \\
+\item \textbf{EJERCICIO D:} Se hizo uso de los métodos negative(), join() y horizontalRepeat(), buscando reutilizar el objeto Picture creado al inicio y no crear innecesariamente otros varios más.\\
 
 
 
@@ -192,14 +192,14 @@ Se crearon varias peticiones y funciones para el funcionamiento de la página us
 
 
 \includegraphics[width=\textwidth]{img/16.png}
-\item \textbf{Ejercicio e:} \\
+\item \textbf{EJERCICIO E:} Se utilizó la solución del ejercicio 4 pero se le agrego el método negative() para obtener el resultado buscado.\\
 
 
 \includegraphics[width=\textwidth]{img/17.png}
 
 
 \includegraphics[width=\textwidth]{img/18.png}
-\item \textbf{Ejercicio f:} \\
+\item \textbf{EJERCICIO F:} Se reutilizo la implementación de los ejercicios 4 y 5, ademas se utilizo los métodos up() y verticalRepeat().\\
 
 
 
@@ -207,7 +207,7 @@ Se crearon varias peticiones y funciones para el funcionamiento de la página us
 
 
 \includegraphics[width=\textwidth]{img/20.png}
-\item \textbf{Ejercicio g:} \\
+\item \textbf{EJERCICIO G:} Se dividió el tablero en pequeñas subpartes las cuales se pudieran repetir o fueran el inverso de otras, por lo que se busco crear estas subpartes para al final unirlas y acomodarlas con los métodos join(), negative(), up(), verticalRepeat(), horizontalRepeat() y under(). Con esto se logró completar el tablero de ajedrez.\\
 
 
 
@@ -216,21 +216,16 @@ Se crearon varias peticiones y funciones para el funcionamiento de la página us
 
 \includegraphics[width=\textwidth]{img/22.png}
 \end{itemize}
-\subsection*{Pregunta.}
-Mencione la diferencia entre conexiones asíncronas usando el objeto XmlHttpRequest, JQuery.ajax y Fetch. Justifique su respuesta con un ejemplo muy básico. Eje: Hola Mundo, IMC, etc.
-\begin{itemize}
-\item \textbf{XmlHttpRequest: } Es la API original de JavaScript, requiere manejar de forma manual múltiples eventos.\\
+\subsection*{Pregunta:}
+\textbf{Explique: ¿Para qué sirve el directorio pycache?}\\
+Este directorio sirve para almacenar archivos caché de byte-code generados por Python. Gracias a ello se puede optimizar en el tiempo de carga de los módulos al evitar la recompilación del código fuente cada vez que se importa un archivo .py, mejorando el rendimiento y velocidad de ejecución de los programas en Python, siendo de utilidad para proyectos a gran escala con muchos módulos de por medio.
 
-
-
-\includegraphics[width=\textwidth]{img/xml.png}
-\end{itemize}
 \section{Commits realizados:}
 
+\includegraphics[width=\textwidth]{img/commits1.png}
 
 
-
-\includegraphics[width=\textwidth]{img/1.png}
+\includegraphics[width=\textwidth]{img/commits2.png}
 \section{Rúbrica:}
 
 
